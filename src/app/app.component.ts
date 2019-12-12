@@ -10,7 +10,7 @@ import { DrawableComponent } from './drawable/drawable.component';
 export class AppComponent implements OnInit {
 
 	model: LayersModel;
-	predictions: unknown[];
+	prediction: unknown[];
 	pixelatedImage: number[][];
 
 	@ViewChild(DrawableComponent)
@@ -42,13 +42,13 @@ export class AppComponent implements OnInit {
 			
 			img = cast(img, 'float32');
 			const output = this.model.predict(img) as Tensor<Rank>;
-			this.predictions = Array.from(output.dataSync());
-			console.log(this.predictions);
+			this.prediction = Array.from(output.dataSync());
+			console.log(this.prediction);
 		});
 	}
 
 	clear(){
-		this.predictions =null;
+		this.prediction =null;
 		this.pixelatedImage = [[]];
 		this.drawable.clear();
 	}
