@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LayersModel, loadLayersModel, tidy, browser, cast, Tensor, Rank } from '@tensorflow/tfjs';
+import { DrawableComponent } from './drawable/drawable.component';
 
 @Component({
 	selector: 'app-root',
@@ -11,6 +12,9 @@ export class AppComponent implements OnInit {
 	model: LayersModel;
 	predictions: unknown[];
 	pixelatedImage: number[][];
+
+	@ViewChild(DrawableComponent)
+	drawable: DrawableComponent;
 
 	ngOnInit(): void {
 		this.loadModel();
@@ -41,6 +45,12 @@ export class AppComponent implements OnInit {
 			this.predictions = Array.from(output.dataSync());
 			console.log(this.predictions);
 		});
+	}
+
+	clear(){
+		this.predictions =null;
+		this.pixelatedImage = [[]];
+		this.drawable.clear();
 	}
 
 }

@@ -59,7 +59,7 @@ export class DrawableComponent implements OnInit {
 		this.pos.y = e.offsetY;
 	}
 
-	clear() {
+	public clear() {
 		this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
 	}
 
