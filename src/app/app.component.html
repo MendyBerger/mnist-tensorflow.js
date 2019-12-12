@@ -2,4 +2,10 @@
 
 <button (click)="clear()">Clear</button>
 
+<div class="prediction">
+	<span *ngFor="let pre of prediction; let i = index;" [ngStyle]="{'height': (pre * 100) + '%'}">
+		{{ i }}
+	</span>
+</div>
+
 <app-preview-pixelated [image]="pixelatedImage"></app-preview-pixelated>
