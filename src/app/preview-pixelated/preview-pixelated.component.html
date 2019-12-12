@@ -1,0 +1,3 @@
+<ng-container *ngFor="let inner of image">
+	<span *ngFor="let pxl of inner" [ngStyle]="{'background-color': 'rgb(' + (255 - pxl) + ',' + (255 - pxl) + ',' + (255 - pxl) + ')'}"></span>
+</ng-container>

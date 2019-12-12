@@ -1,0 +1,9 @@
+:host {
+	display: grid;
+	grid-template-columns: repeat(28, 5px);
+}
+span {
+	display: inline-block;
+	height: 5px;
+	width: 5px;
+}
